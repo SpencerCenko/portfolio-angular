@@ -1,12 +1,26 @@
+<mat-toolbar color="primary">
+    <span>Meu Portfólio</span>
+    <span class="espacador"></span>
+    <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true }">Início</a>
+    <a mat-button routerLink="/sobre" routerLinkActive="ativo">Sobre</a>
+    <a mat-button routerLink="/projetos" routerLinkActive="ativo">Projetos</a>
+    <a mat-button routerLink="/contato" routerLinkActive="ativo">Contato</a>
+</mat-toolbar>
+
+<main style="padding: 24px;">
+    <router-outlet></router-outlet>
+</main>
+
+<!--
 <html>
 <body>
 <main>
 <h1>{{ title() }}</h1>
-
-<p>Bem-vindo ao meu portfólio -- em construção com Angular!</p>
+Bem-vindo ao meu portfólio -- em construção com Angular!
 <p>Nome: Spencer Antunes da Rosa Cenko</p>
 <p>Idade: 17</p>
 <p>Pretendo mostrar meus interesses tecnológicos e as coisas que gosto</p>
 </main>
 </body>
 </html>
+-->

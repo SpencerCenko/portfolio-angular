@@ -1,23 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { Route, Routes } from "@angular/router";
+import { Home } from './home/home';
+import { Sobre } from "./sobre/sobre";
+import { Projetos } from "./projetos/projetos";
+import { Contato } from "./contato/contato";
 
-describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
-  });
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portfolio-angular');
-  });
-});
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: 'sobre', component: Projetos },
+  { path: 'projetos', component: Projetos },
+  { path: 'contato', component: Contato },
+];

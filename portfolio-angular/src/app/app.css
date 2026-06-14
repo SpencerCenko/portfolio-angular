@@ -1,10 +1,12 @@
 body {
     background-color: bisque;
+
 }
 main {
-    background-color: white;
+    background-color: aliceblue;
     border-radius: 5px;
     margin-left: 25%;
     margin-right: 25%;
     text-align: center;
 }
+.espacador {flex: 1 1 auto; }
