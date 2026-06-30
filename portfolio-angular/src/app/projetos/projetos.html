@@ -1,8 +1,24 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Bem vindo à página de Projetos! </mat-card-title>
-            </mat-card-header>
-            <p>Aqui serão listados alguns de meus projetos!</p>
-            <p>Tradução Optiscaler para pt-br(deu errado, me rejeitaram)</p>
-            <p>Repositório de estudo para OBI</p>        
+@if (carregando) {
+    <p>Carregando projetos...</p>
+}
+@if (erro) {
+    <p>{{ erro }}</p>
+}
+@if (!carregando && projetos.length === 0) {
+    <p>Nenhum projeto publicado ainda.</p>
+}
+
+@for (p of projetos; track p.id) {
+    <mat-card style="margin-bottom: 12px;">
+        <mat-card-header>
+            <mat-card-title>{{ p.nome }}</mat-card-title>
+             <mat-card-subtitle>{{ p.tecnologias }} -- {{ p.ano }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>{{ p.link_github }}</mat-card-content>
+        <mat-card-actions>
+         @if (p.link_github) {
+        <a mat-button [href]="p.link_github" target="_blank" rel="noopener">Ver no GitHub</a>
+       }
+       </mat-card-actions>
 </mat-card>
+}

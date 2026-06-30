@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-header('Acess-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: *');
 
 require __DIR__ . '/../conexao.php';
 
