@@ -5,7 +5,7 @@ import { ProjetoService, Projeto } from '../projeto.service';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-projetos',
-  imports: [MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButtonModule, MatSidenavModule],
   templateUrl: './projetos.html',
   styleUrl: './projetos.css',
 })
