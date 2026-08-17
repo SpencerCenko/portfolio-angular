@@ -23,3 +23,14 @@ para usar olhar o banco(feito pelo código de php) tem que digitar:
 pra abrir o projeto é só entrar em portfolio-angular(cd portfolio-angular) e digitar ngserve
 sobre o setup.sql, você pode sempre recriar o banco usando 
 sudo mariadb < sql/setup.sql
+
+## 🎯 Autoavaliação
+17/08/2026
+Conceito pretendido: [B]
+Justificativa:
+- Form reativo + erro por campo: contato.html (mensagens com touched) + contato.ts (Validators)
+- POST via service + tratamento: contato.service.ts (http.post) + contato.ts (subscribe next/error)
+- Bilhete: 
+1 -get só pega os dados e é menos seguro, enquanto post consegue mudar e é seguro
+2 - por algum motivo deu erro pela pagina n ser https(era http), depois q eu troquei deu certo
+3 - contato.php, post é mais seguro q get
