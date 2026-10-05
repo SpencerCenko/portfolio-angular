@@ -154,3 +154,13 @@ Rotas que leem do `dwii_db`:
     curl -i https://localhost:3000/api/projetos
     curl -i https://localhost:3000/api/projetos/5
     curl -i https://localhost:3000/api/tecnologias
+
+### Aula 23: a API cria, altera e apaga
+
+A API em umso e a de `api-node/`. Os arquivos `api/*.php` e `conexao.php` ficam no repositorio como historico do 2o trimestre.
+
+    curl -i -X POST https://localhost:3000/api/projetos -H "Content-Type: application/json" -d '{"nome":"Projeto de teste","ano":2026}'
+
+    curl -i -X POST https://localhost:3000/api/projetos -H "Content-Type: application/json" -d '
+    {"nome":"Projeto de teste (editado)","ano":2026}'
+    curl -i -X DELETE http://localhost:3000/api/projetos/19
