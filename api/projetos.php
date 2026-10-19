@@ -93,6 +93,8 @@ if ($metodo === 'DELETE') {
     }
     exit;
 }
-http_response_code(405);
-echo json_encode(['erro' => 'Metodo nao permitido']);
+//http_response_code(405);
+//echo json_encode(['erro' => 'Metodo nao permitido']);
+http_response_code(204);
+exit;
 ?>

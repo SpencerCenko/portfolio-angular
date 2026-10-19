@@ -10,3 +10,7 @@ main {
     text-align: center;
 }
 .espacador {flex: 1 1 auto; }
+
+.ativo {
+    color: yellow;
+}
