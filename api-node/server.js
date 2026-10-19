@@ -126,7 +126,7 @@ app.put('/api/projetos/:id', autenticar, async (req, res) => {
         res.status(500).json({ erro: 'Falha no servidor: ' + erro.message});
     }
 });
-
+//so um comentario
 app.delete('/api/projetos/:id', autenticar, async (req, res) => {
     try {
         const [resultado] = await pool.execute('DELETE FROM projetos WHERE id = ?', [req.params.id]);
