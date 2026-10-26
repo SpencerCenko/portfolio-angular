@@ -3,7 +3,7 @@ function Cabecalho() {
         <header>
             <h1>Meu Portfólio</h1>
             <nav>
-                <a href="#">Início</a>
+                <a href="#">Inicio</a>
                 <a href="#">Sobre</a>
                 <a href="#">Projetos</a>
                 <a href="#">Contatos</a>

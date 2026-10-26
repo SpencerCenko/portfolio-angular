@@ -4,7 +4,7 @@ function CardProjeto({ nome, descricao, tecnologias, link_github, ano }) {
             <h3>{nome}</h3>
             <p className="meta">{tecnologias} {ano}</p>
             <p>{descricao}</p>
-            <a href={link_github}>Ver no GitHub</a>
+            {link_github && <a>Ver no Github</a> }
             </article>
     );
 

@@ -11,3 +11,4 @@ main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
 .card .meta { margin: 0 0 8px; color: #6b7280; font-size: 14px; }
 .card a {color: #3b579d; font-weight: bold; }
 footer { text-align: center; color: #6b7280; padding: 24px; font-size: 14px }
+footer { background-color: black; color: white; padding: 12px 24px; display: flex; align-items: center; text-align: right; }
