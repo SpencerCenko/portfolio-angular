@@ -148,25 +148,57 @@ app.get('/api/tecnologias', async (req, res) => {
         res.status(500).json({erro: 'Falha no servidor: ' + erro.message })
     }
 });
-/*
-app.post('/api/tecnologias', async (req, res) => {
+
+app.post('/api/tecnologias', autenticar, async (req, res) => {
     try {
         const dados = req.body;
         console.log(dados);
         if (!dados || !dados.nome) {
             return res.status(400).json({ erro: 'Informe pelo menos o nome do projeto' });
         }
-        const sql = 'INSERT INTO tecnologias (nome, categoria, descricao, ano_criacao, status, criado_em) VALUES (?, ?, ?, ?, ?, ?)';
+        const sql = 'INSERT INTO tecnologias (nome, categoria, descricao, ano_criacao, status, criado_em) VALUES (?, ?, ?, ?, ?, NOW())';
         const [resultado] = await pool.execute(sql, [
             dados.nome, dados.categoria ?? '', dados.descricao ?? '',
-            dados.status ?? '', dados.ano_criacao ?? '', dados.criado_em ?? 'publicado'
+            dados.ano_criacao ?? null, dados.status ?? 'ativo'
         ]);
         res.status(201).json({ id: resultado.insertId});
     } catch (erro) {
         res.status(500).json({ erro: 'Falha no servidor: ' + erro.message });
     }
 });
-*/
+
+app.put('/api/tecnologias/:id', autenticar, async (req, res) => {
+    try {
+        const dados = req.body;
+        if (!dados || !dados.nome) {
+            return res.status(400).json({ erro: 'Informe pelo menos o nome do projeto' })
+        }
+        const sql = 'UPDATE tecnologias SET nome = ?, categoria = ?, descricao = ?, ano_criacao = ?, status = ? WHERE id = ?';
+        const [resultado] = await pool.execute(sql, [
+        dados.nome, dados.categoria ?? '', dados.descricao ?? '',
+        dados.ano_criacao ?? '', dados.status ?? 'ativo', req.params.id
+    ]);
+    if (resultado.affectedRows === 0) {
+        return res.status(400).json({erro: 'Projeto nao encontrado' });
+    }
+    res.json({ mensagem: 'Projeto atualizado' });
+    } catch (erro) {
+        res.status(500).json({ erro: 'Falha no servidor: ' + erro.message});
+    }
+});
+
+app.delete('/api/tecnologias/:id', autenticar, async (req, res) => {
+    try {
+        const [resultado] = await pool.execute('DELETE FROM tecnologias WHERE id = ?', [req.params.id]);
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({ erro: 'Projeto nao encontrado' });
+        }
+        res.status(204).end();
+    } catch (erro) {
+        res.status(500).json({ erro: 'Falha no servidor: ' + erro.message});
+    }
+});
+
 app.listen(PORTA, () => {
     console.log('API no ar em http://localhost:' + PORTA);
 });
